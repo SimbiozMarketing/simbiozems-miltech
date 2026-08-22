@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simbioz EMS MilTech - Система управління виробництвом для оборонних підприємств</title>
+<meta name="description" content="Simbioz EMS MilTech: версії конструкції, аналоги компонентів, контрактне планування, партії, якість і фактична собівартість в одній системі на ваших серверах. Безстрокова ліцензія, on-premise.">
+<meta name="theme-color" content="#22263C">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Simbioz EMS MilTech - Система управління виробництвом для оборонних підприємств">
+<meta property="og:description" content="Єдиний виробничий контур від контракту до відвантаження. On-premise, безстрокова ліцензія, вихідний код доступний для аудиту.">
+<meta property="og:locale" content="uk_UA">
+
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="preload" href="fonts/sansation-cyrillic-700.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="fonts/montserrat-cyrillic-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти до вмісту</a>
+
+<!-- Icon sprite. Glyphs from Tabler Icons (MIT). Stroke width locked to 1.6. -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5l10 -10"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M18 13l-6 6"/><path d="M6 13l6 6"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z"/><path d="M12 16h.01"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M12 11m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12v2.5"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v0a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"/><path d="M3 12m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v0a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"/><path d="M7 7h.01"/><path d="M7 16h.01"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M5 6a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z"/><path d="M9 9h6v6h-6z"/><path d="M3 10h2"/><path d="M3 14h2"/><path d="M10 3v2"/><path d="M14 3v2"/><path d="M21 10h-2"/><path d="M21 14h-2"/><path d="M14 21v-2"/><path d="M10 21v-2"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><path d="M15 8h.01"/><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"/><path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5"/><path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l3 3"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></symbol>
+</svg>
+
+<header class="site-header" id="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href="#top" aria-label="Simbioz EMS MilTech, на початок">
+      <img class="brand__mark" src="img/logo-S-white-on-dark.png" alt="" width="39" height="36">
+      <span class="brand__text">
+        <b>Simbioz EMS</b>
+        <span>MilTech</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Розділи сторінки">
+      <ul class="site-nav__list">
+        <li><a href="#situations">Для кого</a></li>
+        <li><a href="#chain">Як працює</a></li>
+        <li><a href="#capabilities">Можливості</a></li>
+        <li><a href="#architecture">Архітектура</a></li>
+        <li><a href="#commercial">Вартість</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--sm site-header__cta" href="#request">
+      Безкоштовна діагностика бізнесу
+      <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <svg class="ico nav-toggle__open" aria-hidden="true"><use href="#i-menu"/></svg>
+      <svg class="ico nav-toggle__close" aria-hidden="true"><use href="#i-close"/></svg>
+      <span class="sr-only">Меню</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============================ 01 HERO ============================ -->
+<section class="band hero" aria-labelledby="hero-title">
+  <div class="shell">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <ul class="pills" aria-label="Модель постачання">
+          <li class="pill">On-premise</li>
+          <li class="pill">Вихідний код доступний для аудиту</li>
+          <li class="pill">Безстрокова ліцензія</li>
+        </ul>
+
+        <h1 id="hero-title">Керуйте оборонним виробництвом від контракту до готового виробу в <span class="text-accent">єдиному захищеному контурі</span></h1>
+
+        <p class="lead">Версії конструкції, аналоги компонентів, планування під контракт, партії, якість і фактична собівартість — в одній системі на ваших серверах.</p>
+
+        <div class="hero__action">
+          <a class="btn btn--onDark btn--lg" href="#request">
+            Записатись на діагностичну зустріч
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+          <p class="microcopy"><span class="text-accent">Безкоштовно · 30 хвилин · без зобов'язань</span></p>
+        </div>
+      </div>
+
+      <img class="hero__visual" src="img/hero_1.png" alt="ERP-система для серійного MilTech-виробництва: конструкція, закупівлі, цех і контракт в одному контурі" width="1024" height="1024">
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Три відмінності (винесені з hero) ==================== -->
+<section class="strip" aria-label="Чим відрізняється рішення">
+  <div class="shell strip__grid">
+    <p class="strip__item"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Галузева конфігурація під серійне оборонне виробництво</p>
+    <p class="strip__item"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Український фінансовий і обліковий контур у складі рішення, без другої системи</p>
+    <p class="strip__item"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Безстрокова ліцензія, on-premise, без обмеження кількості користувачів</p>
+  </div>
+</section>
+
+<!-- ============================ 02 СИТУАЦІЇ ============================ -->
+<section class="section" id="situations" aria-labelledby="situations-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="situations-title">Шість ситуацій, у яких вам допоможе Simbioz EMS MilTech</h2>
+      <p class="section__lead">Якщо ви впізнаєте себе хоча б у двох, вам уже потрібен єдиний виробничий контур, а не ще одна програма.</p>
+    </header>
+
+    <ol class="situations reveal-group">
+      <li class="situation reveal">
+        <h3>Конструкція постійно змінюється</h3>
+        <p>Закупівля, склад і цех працюють із різними версіями специфікації</p>
+      </li>
+      <li class="situation reveal">
+        <h3>З'явилося багато аналогів компонентів</h3>
+        <p>Ніхто не може точно сказати, що саме встановлено в конкретному виробі</p>
+      </li>
+      <li class="situation reveal">
+        <h3>Зростає кількість контрактів</h3>
+        <p>План виробництва живе окремо від строків зобов'язань</p>
+      </li>
+      <li class="situation reveal">
+        <h3>Потрібна фактична собівартість</h3>
+        <p>Дані доводиться збирати вручну вже після того, як партію випущено</p>
+      </li>
+      <li class="situation reveal">
+        <h3>Виробництво швидко масштабується</h3>
+        <p>Excel та окремі системи перестають витримувати кількість операцій</p>
+      </li>
+      <li class="situation reveal">
+        <h3>Шукаєте заміну 1С \ BAS</h3>
+        <p>Потрібна не бухгалтерія в новій обгортці, а новий операційний контур</p>
+      </li>
+    </ol>
+
+    <div class="segments">
+      <div class="segments__main">
+        <h3 class="h-label h-label--accent">✅ Зібрано під серійне та дрібносерійне виробництво</h3>
+        <ul class="tags tags--accent">
+          <li>Дрони та безпілотні системи</li>
+          <li>РЕБ, РЕР і засоби зв'язку</li>
+          <li>Наземні роботизовані комплекси та компоненти</li>
+        </ul>
+        <p class="note">Спільна ознака — повторюваний виріб зі складною багаторівневою специфікацією.</p>
+      </div>
+      <div class="segments__aside">
+        <h3 class="h-label h-label--strong">❌ Кому не підійде</h3>
+        <ul class="minus-list">
+          <li>Дистрибуція без власного складу</li>
+          <li>Компанії, яким потрібна тільки бухгалтерія</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 03 РОЗРИВИ (темна смуга) ============================ -->
+<section class="band section" id="gaps" aria-labelledby="gaps-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="gaps-title">Проблеми розрізнених програм, які створюють розриви у виробничому ланцюгу</h2>
+      <p class="section__lead">Кожна з цих чотирьох ситуацій має ціну, яку рідко рахують окремо — вона розчинена в собівартості, простоях і зірваних строках.</p>
+    </header>
+
+    <div class="table-scroll">
+      <table class="gaps-table">
+        <thead>
+          <tr>
+            <th scope="col">Ситуація</th>
+            <th scope="col">Що відбувається</th>
+            <th scope="col">Чим закінчується</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Цех працює за старою версією</th>
+            <td>Інженери оновили специфікацію, закупівля привезла компонент під попередню редакцію</td>
+            <td class="cost"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Партія на переробку, заморожений запас, зупинка складання</td>
+          </tr>
+          <tr>
+            <th scope="row">Заміну компонента бачив тільки майстер</th>
+            <td>Про аналог не знають ні закупівлі, ні фінанси, ні приймання</td>
+            <td class="cost"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Виріб не проходить приймання, простежуваність порушена, собівартість невідома</td>
+          </tr>
+          <tr>
+            <th scope="row">Собівартість рахується постфактум</th>
+            <td>Дані про закупівлі, брак і логістику лежать у різних файлах</td>
+            <td class="cost"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Контракт може виявитися збитковим, і ви дізнаєтесь про це в кінці кварталу</td>
+          </tr>
+          <tr>
+            <th scope="row">Строк контракту живе окремо від плану</th>
+            <td>Зв'язок між зобов'язанням і цехом існує в голові директора або в окремому файлі</td>
+            <td class="cost"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Про ризик зриву керівництво дізнається за два тижні до відвантаження</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="conclusion">Жодну з цих проблем не закриває окремий інструмент. Вони виникають саме там, де один процес передає результат іншому.</p>
+  </div>
+</section>
+
+<!-- ============================ 04 ЄДИНИЙ КОНТУР ============================ -->
+<section class="section" id="chain" aria-labelledby="chain-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="chain-title"><span class="text-accent">Єдиний виробничий ланцюг</span> замість десятка програм</h2>
+      <p class="section__lead">Конструктор змінює вузол, закупівлі бачать нову потребу, цех не може працювати за старою версією, собівартість перераховується, дата відвантаження оновлюється, без нарад, листів і ручної звірки таблиць.</p>
+    </header>
+
+    <ol class="chain reveal-group">
+      <li class="chain__step reveal"><span class="chain__num">01</span><span class="chain__label">Контракт</span></li>
+      <li class="chain__step reveal"><span class="chain__num">02</span><span class="chain__label">Конфігурація виробу</span></li>
+      <li class="chain__step reveal"><span class="chain__num">03</span><span class="chain__label">Специфікація <i>BOM, версія</i></span></li>
+      <li class="chain__step reveal"><span class="chain__num">04</span><span class="chain__label">Планування</span></li>
+      <li class="chain__step reveal"><span class="chain__num">05</span><span class="chain__label">Закупівлі й склад</span></li>
+      <li class="chain__step reveal"><span class="chain__num">06</span><span class="chain__label">Виробництво</span></li>
+      <li class="chain__step reveal"><span class="chain__num">07</span><span class="chain__label">Якість і приймання</span></li>
+      <li class="chain__step reveal"><span class="chain__num">08</span><span class="chain__label">Відвантаження</span></li>
+    </ol>
+
+    <div class="chain__through">
+      <span class="h-label">Наскрізно на всьому ланцюгу</span>
+      <ul class="tags tags--accent">
+        <li>Собівартість</li>
+        <li>Простежуваність</li>
+        <li>Права доступу</li>
+        <li>Строк контракту</li>
+      </ul>
+    </div>
+
+    <p class="conclusion">Одна зміна в будь-якій точці ланцюга перебудовує все, що стоїть після неї.</p>
+
+    <a class="link-down" href="#scenarios">
+      Подивитися, як це працює на трьох сценаріях
+      <svg class="ico" aria-hidden="true"><use href="#i-arrow-down"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============================ 05 ТРИ СЦЕНАРІЇ ============================ -->
+<section class="section section--alt" id="scenarios" aria-labelledby="scenarios-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="scenarios-title">Продемонструємо, а не пообіцяємо</h2>
+      <p class="section__lead">Три сценарії, у яких наскрізність видно на конкретній дії, а не на схемі.</p>
+    </header>
+
+    <div class="tabs" data-tabs>
+      <div class="tabs__list" role="tablist" aria-label="Сценарії роботи системи">
+        <button class="tabs__tab" role="tab" id="tab-sc1" aria-controls="panel-sc1" aria-selected="true" tabindex="0">
+          <span class="tabs__kicker">Дефіцит</span>
+          <span class="tabs__title">Заміна компонента не руйнує план</span>
+        </button>
+        <button class="tabs__tab" role="tab" id="tab-sc2" aria-controls="panel-sc2" aria-selected="false" tabindex="-1">
+          <span class="tabs__kicker">Зміна конструкції</span>
+          <span class="tabs__title">Нова версія доходить до цеху одразу</span>
+        </button>
+        <button class="tabs__tab" role="tab" id="tab-sc3" aria-controls="panel-sc3" aria-selected="false" tabindex="-1">
+          <span class="tabs__kicker">Здійсненність</span>
+          <span class="tabs__title">Обіцяна дата спирається на дані</span>
+        </button>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panel-sc1" aria-labelledby="tab-sc1" tabindex="0">
+        <div class="scenario">
+          <ol class="steps">
+            <li>Закупівлі бачать дефіцит ключової позиції</li>
+            <li>Система пропонує дозволений аналог за пріоритетом</li>
+            <li>Заміна фіксується в партії та журналі аудиту</li>
+            <li>Собівартість і дата відвантаження перераховуються</li>
+          </ol>
+          <!--
+            СЛОТ ЗОБРАЖЕННЯ — Екран 2 · Дефіцит і аналоги (за ТЗ на візуальні матеріали)
+            У кадрі: потреба за планом, залишок, дефіцит, список дозволених аналогів
+            із пріоритетом і строком поставки.
+            Не в кадрі: назви постачальників, реальні ціни, реальні обсяги.
+            Мін. 2560px по ширині, світла тема. Callout'и ①②③ наносяться при верстці.
+          -->
+          <figure class="slot">
+            <svg class="slot__icon" aria-hidden="true"><use href="#i-image"/></svg>
+            <figcaption class="slot__text">
+              <b>Слот скриншота: дефіцит і аналоги</b>
+              Потреба за планом, залишок, дефіцит, дозволені аналоги з пріоритетом і строком поставки.
+              <span>Мін. 2560px, світла тема, синтетичні дані</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panel-sc2" aria-labelledby="tab-sc2" tabindex="0" hidden>
+        <div class="scenario">
+          <ol class="steps">
+            <li>Конструктор випускає нову версію специфікації</li>
+            <li>Потреба в матеріалах змінюється наскрізно</li>
+            <li>Закупівля бачить нову позицію без окремого листа</li>
+            <li>Стару версію неможливо запустити у виробництво</li>
+          </ol>
+          <!--
+            СЛОТ ЗОБРАЖЕННЯ — Екран 1 · Специфікація виробу (за ТЗ на візуальні матеріали)
+            У кадрі: дерево BOM із розкритим вузлом на 2-3 рівні, поточна ревізія й статус,
+            дата та автор останньої зміни, видима історія версій.
+            Не в кадрі: реальні назви виробів і вузлів, артикули постачальників, імена співробітників.
+          -->
+          <figure class="slot">
+            <svg class="slot__icon" aria-hidden="true"><use href="#i-image"/></svg>
+            <figcaption class="slot__text">
+              <b>Слот скриншота: специфікація виробу</b>
+              Дерево BOM на 2-3 рівні, поточна ревізія й статус, дата та автор зміни, історія версій.
+              <span>Мін. 2560px, світла тема, синтетичні дані</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panel-sc3" aria-labelledby="tab-sc3" tabindex="0" hidden>
+        <div class="scenario">
+          <ol class="steps">
+            <li>Менеджер задає вимоги до конфігурації виробу</li>
+            <li>Система враховує доступні матеріали й аналоги</li>
+            <li>Потужності перевіряються на горизонті 7, 14 і 30 днів</li>
+            <li>Клієнт отримує обґрунтовану дату ще під час розмови</li>
+          </ol>
+          <!--
+            СЛОТ ЗОБРАЖЕННЯ — Екран 3 · Контракт і виробництво (за ТЗ на візуальні матеріали)
+            У кадрі: картка контракту, план-факт за етапами, завантаження потужностей,
+            прогнозна дата з індикатором ризику.
+            Не в кадрі: номер і сторона контракту, реальні суми, реальні дати зобов'язань.
+          -->
+          <figure class="slot">
+            <svg class="slot__icon" aria-hidden="true"><use href="#i-image"/></svg>
+            <figcaption class="slot__text">
+              <b>Слот скриншота: контракт і виробництво</b>
+              Картка контракту, план-факт за етапами, завантаження потужностей, прогнозна дата з індикатором ризику.
+              <span>Мін. 2560px, світла тема, синтетичні дані</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn--primary btn--lg" href="#request">
+        Запросити діагностичну зустріч
+        <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <p class="microcopy">Демонстрація на анонімізованих синтетичних даних</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 06 МОЖЛИВОСТІ ============================ -->
+<section class="section" id="capabilities" aria-labelledby="capabilities-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="capabilities-title">Що система робить у щоденній роботі</h2>
+      <p class="section__lead">Шість напрямів, які найчастіше вирішують питання</p>
+    </header>
+
+    <div class="accordion accordion--static">
+      <div class="acc">
+        <div class="acc__head"><span class="acc__num">01</span><span class="acc__title">Дефіцит і аналоги компонентів</span></div>
+        <div class="acc__body"><p>Дозволені заміни з пріоритетом, журнал кожної заміни, перерахунок плану й собівартості.</p></div>
+      </div>
+      <div class="acc">
+        <div class="acc__head"><span class="acc__num">02</span><span class="acc__title">BOM і керування змінами конструкції</span></div>
+        <div class="acc__body"><p>Версії специфікації, наскрізне поширення зміни, блокування застарілої редакції.</p></div>
+      </div>
+      <div class="acc">
+        <div class="acc__head"><span class="acc__num">03</span><span class="acc__title">Контрактне планування</span></div>
+        <div class="acc__body"><p>Зв'язок зобов'язання з планом цеху, ієрархічне планування, контроль строку.</p></div>
+      </div>
+      <div class="acc">
+        <div class="acc__head"><span class="acc__num">04</span><span class="acc__title">Конфігурація виробу й перевірка здійсненності</span></div>
+        <div class="acc__body"><p>Обґрунтована дата відвантаження за матеріалами та потужностями.</p></div>
+      </div>
+      <div class="acc">
+        <div class="acc__head"><span class="acc__num">05</span><span class="acc__title">Якість, приймання і простежуваність</span></div>
+        <div class="acc__body"><p>Приймальні випробування, маркування, історія партії та компонентів.</p></div>
+      </div>
+      <div class="acc">
+        <div class="acc__head"><span class="acc__num">06</span><span class="acc__title">Фінансовий контур і собівартість</span></div>
+        <div class="acc__body"><p>Фактична собівартість партії, прибутковість контракту, український обліковий контур.</p></div>
+      </div>
+    </div>
+
+    <p class="note note--wide">Це шість напрямів, а не повний перелік. Складські операції, логістика, продажі, CRM, сервіс і кадровий облік працюють у тому самому контурі.</p>
+
+    <!-- Підблок: ролі -->
+    <div class="roles" data-tabs>
+      <div class="roles__main">
+        <h3 class="roles__title">Оберіть свою роль</h3>
+
+        <div class="roles__list" role="tablist" aria-label="Що змінюється для вашої ролі">
+          <button class="chip" role="tab" id="tab-r1" aria-controls="panel-r1" aria-selected="true" tabindex="0">CEO / власник</button>
+          <button class="chip" role="tab" id="tab-r2" aria-controls="panel-r2" aria-selected="false" tabindex="-1">CFO</button>
+          <button class="chip" role="tab" id="tab-r3" aria-controls="panel-r3" aria-selected="false" tabindex="-1">COO</button>
+          <button class="chip" role="tab" id="tab-r4" aria-controls="panel-r4" aria-selected="false" tabindex="-1">Керівник виробництва</button>
+          <button class="chip" role="tab" id="tab-r5" aria-controls="panel-r5" aria-selected="false" tabindex="-1">CTO / CISO</button>
+        </div>
+
+        <div class="role-card" role="tabpanel" id="panel-r1" aria-labelledby="tab-r1" tabindex="0">
+          <dl>
+            <div><dt>Бачите</dt><dd>Стан виконання кожного контракту в реальному часі.</dd></div>
+            <div><dt>Ухвалюєте</dt><dd>Рішення про перерозподіл потужностей до того, як строк став критичним.</dd></div>
+            <div><dt>Зникає ризик</dt><dd>Дізнатися про зрив за два тижні до відвантаження.</dd></div>
+          </dl>
+        </div>
+
+        <div class="role-card" role="tabpanel" id="panel-r2" aria-labelledby="tab-r2" tabindex="0" hidden>
+          <dl>
+            <div><dt>Бачите</dt><dd>Фактичну собівартість кожної партії.</dd></div>
+            <div><dt>Ухвалюєте</dt><dd>Рішення про маржинальність контракту до його завершення.</dd></div>
+            <div><dt>Зникає ризик</dt><dd>Виявити збитковість після закриття періоду.</dd></div>
+          </dl>
+        </div>
+
+        <div class="role-card" role="tabpanel" id="panel-r3" aria-labelledby="tab-r3" tabindex="0" hidden>
+          <dl>
+            <div><dt>Бачите</dt><dd>План-факт і вузькі місця по всьому ланцюгу, від закупівель до відвантаження.</dd></div>
+            <div><dt>Ухвалюєте</dt><dd>Рішення на основі даних системи, а не усних домовленостей у чатах.</dd></div>
+            <div><dt>Зникає ризик</dt><dd>Розсинхрон між продажами, закупівлями й цехом.</dd></div>
+          </dl>
+        </div>
+
+        <div class="role-card" role="tabpanel" id="panel-r4" aria-labelledby="tab-r4" tabindex="0" hidden>
+          <dl>
+            <div><dt>Бачите</dt><dd>Актуальну версію специфікації, дозволені аналоги й теплову карту завантаження.</dd></div>
+            <div><dt>Ухвалюєте</dt><dd>Рішення про заміну компонента з фіксацією в системі, а не на розсуд майстра.</dd></div>
+            <div><dt>Зникає ризик</dt><dd>Запустити партію за застарілою редакцією.</dd></div>
+          </dl>
+        </div>
+
+        <div class="role-card" role="tabpanel" id="panel-r5" aria-labelledby="tab-r5" tabindex="0" hidden>
+          <dl>
+            <div><dt>Бачите</dt><dd>Систему у власному контурі, з доступом до вихідного коду для аудиту.</dd></div>
+            <div><dt>Ухвалюєте</dt><dd>Рішення про модель розгортання й розмежування прав: доступ до конструкторської документації окремо від прав на систему.</dd></div>
+            <div><dt>Зникає ризик</dt><dd>Залежність від зовнішньої хмари й неможливість перевірити, що всередині.</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <img class="roles__visual" src="img/miltech_m.png" alt="" width="1271" height="941">
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 07 ЧОМУ SIMBIOZ ============================ -->
+<section class="section section--alt" id="why" aria-labelledby="why-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="why-title">Чому варто обрати Simbioz EMS MilTech</h2>
+      <p class="section__lead">Готова MilTech-конфігурація на основі міжнародної ERP-платформи Odoo, що вже працює на приватних підприємствах ОПК України.</p>
+    </header>
+
+    <ol class="args reveal-group">
+      <li class="arg reveal">
+        <span class="arg__num">01</span>
+        <div>
+          <h3>Галузева конфігурація</h3>
+          <p>Зібрана під серійне оборонне виробництво. Система приходить налаштованою, а не порожньою.</p>
+        </div>
+      </li>
+      <li class="arg reveal">
+        <span class="arg__num">02</span>
+        <div>
+          <h3>Заміна 1С \ BAS</h3>
+          <p>Повна українська локалізація в складі продукту: перехід повний, без паралельної роботи двох систем.</p>
+        </div>
+      </li>
+      <li class="arg reveal">
+        <span class="arg__num">03</span>
+        <div>
+          <h3>Український продукт і команда</h3>
+          <p>Україномовна підтримка й українська вартість роботи на всьому життєвому циклі системи.</p>
+        </div>
+      </li>
+      <li class="arg reveal">
+        <span class="arg__num">04</span>
+        <div>
+          <h3>Власність на систему</h3>
+          <p>Безстрокова ліцензія, ваш сервер, доступ до вихідного коду.</p>
+        </div>
+      </li>
+      <li class="arg reveal">
+        <span class="arg__num">05</span>
+        <div>
+          <h3>Прогнозований бюджет і строк</h3>
+          <p>Межі, вартість і дата запуску фіксуються до старту робіт.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ 08 АРХІТЕКТУРА (темна смуга) ============================ -->
+<section class="band section" id="architecture" aria-labelledby="architecture-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="architecture-title">Ваш сервер. Ваші дані. Ваші правила</h2>
+      <p class="section__lead">Безпека — це контрольована архітектура, розмежування прав і процедури, а не декларація про захист.</p>
+    </header>
+
+    <div class="control-grid">
+      <article class="control">
+        <svg class="ico ico--lg" aria-hidden="true"><use href="#i-server"/></svg>
+        <h3>Розгортання в контурі підприємства</h3>
+        <p>Система встановлюється на вашому сервері. Жодних зовнішніх трекерів у контурі MilTech.</p>
+      </article>
+      <article class="control">
+        <svg class="ico ico--lg" aria-hidden="true"><use href="#i-shield"/></svg>
+        <h3>Доступ до коду</h3>
+        <p>Вихідний код платформи й нашої конфігурації доступний вашій службі безпеки або залученому аудитору для перевірки.</p>
+      </article>
+      <article class="control">
+        <svg class="ico ico--lg" aria-hidden="true"><use href="#i-check"/></svg>
+        <h3>Права всередині системи</h3>
+        <p>Доступ до Simbioz EMS не дорівнює доступу до конструкції виробу. Права керуються до рівня груп полів.</p>
+      </article>
+      <article class="control">
+        <svg class="ico ico--lg" aria-hidden="true"><use href="#i-check"/></svg>
+        <h3>Власність на дані</h3>
+        <p>Безстрокова ліцензія. Якщо оновлення зупинені, система й доступ до ваших даних залишаються.</p>
+      </article>
+      <article class="control control--wide">
+        <svg class="ico ico--lg" aria-hidden="true"><use href="#i-cpu"/></svg>
+        <h3>AI без передачі контролю над даними</h3>
+        <p>MCP-сервер дає AI-агентам керований доступ до даних і дій усередині системи. Набір доступних агенту дій визначаєте ви.</p>
+      </article>
+    </div>
+
+    <dl class="spec">
+      <div><dt>Платформа</dt><dd>Odoo</dd></div>
+      <div><dt>Стек</dt><dd>Python, PostgreSQL, QWeb</dd></div>
+      <div><dt>Розгортання</dt><dd>on-premise</dd></div>
+      <div><dt>Сертифікат безпеки</dt><dd>ISO/IEC 27001</dd></div>
+    </dl>
+
+    <div class="odoo-note">
+      <img class="odoo-note__logo" src="img/odoo_logo.svg" alt="Odoo" width="240" height="180">
+      <p class="note note--onDark">Ядро платформи розвивається з 2005 року, має міжнародну спільноту розробників, публічний цикл випуску версій і понад 28 мільйонів користувачів у світі.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 09 ЯК ЗАПУСКАЄМО ============================ -->
+<section class="section" id="rollout" aria-labelledby="rollout-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="rollout-title"><span class="text-accent">Два шляхи</span> запуску Simbioz EMS MilTech на вашому підприємстві</h2>
+    </header>
+
+    <div class="choice">
+      <article class="choice__col">
+        <h3>Самостійний запуск</h3>
+        <ul class="check-list">
+          <li>У вас вже є досвід ERP-впроваджень</li>
+          <li>Процеси формалізовані й описані</li>
+          <li>У вас є бізнес-аналітик та керівник проєкту</li>
+          <li>Ви самостійно мігруєте дані й зможете навчити персонал</li>
+        </ul>
+      </article>
+      <article class="choice__col choice__col--accent">
+        <h3>Проєкт впровадження з командою Simbioz</h3>
+        <ul class="check-list check-list--dot">
+          <li>У вашої команди недостатньо компетенцій для самостійного впровадження ERP-системи</li>
+          <li>Процеси автоматизації потрібно спочатку дослідити та формалізувати</li>
+          <li>Рішення необхідно спроєктувати з урахуванням ваших бізнес-процесів</li>
+          <li>Потрібна підтримка з міграцією даних і навчанням співробітників</li>
+          <li>Важливо зафіксувати результат і строк запуску до початку проєкту</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="note note--callout">Більшість компаній переоцінюють свої можливості щодо самостійного впровадження. Тому на діагностиці ми оцінимо склад вашої команди й стан процесів, покажемо ризики і скажемо прямо, який варіант вам підходить.</p>
+
+    <div class="cta-row">
+      <a class="btn btn--primary btn--lg" href="#request">
+        Обговорити, який варіант вам підходить
+        <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 10 КОМЕРЦІЙНА МОДЕЛЬ ============================ -->
+<section class="section section--alt" id="commercial" aria-labelledby="commercial-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="commercial-title">Вартість Simbioz EMS MilTech</h2>
+    </header>
+
+    <div class="pricing">
+      <article class="price price--main">
+        <h3>Програмний комплекс Simbioz EMS MilTech</h3>
+        <p class="price__value">15 000 $</p>
+        <p class="price__unit">Ліцензія, одноразово</p>
+        <ul class="check-list">
+          <li>Безстроково, без обмеження кількості користувачів</li>
+          <li>Усі модулі MilTech-конфігурації в складі</li>
+        </ul>
+      </article>
+
+      <article class="price">
+        <h3>Річне оновлення</h3>
+        <p class="price__value">1 000 $<small> / рік</small></p>
+        <p class="price__unit">За бажанням</p>
+        <ul class="check-list">
+          <li>Без оновлень система продовжує працювати, доступ до даних не зникає</li>
+          <li>Річний платіж — це оновлення, а не право користування системою</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="rollout-cost">
+      <header class="section__head">
+        <h3 class="rollout-cost__title">Вартість <span class="text-accent">впровадження</span> Simbioz EMS MilTech<br>має прозорі комерційні межи</h3>
+        <p class="section__lead">До початку робіт ми визначаємо реалістичний обсяг першого етапу та фіксуємо результат, строк і бюджет.</p>
+      </header>
+
+      <article class="impl">
+        <div class="impl__head">
+          <p class="impl__label">Проєкт впровадження</p>
+          <p class="impl__value">Бюджет формується на перетині двох факторів:</p>
+        </div>
+
+        <div class="impl__method">
+          <ol class="impl__factors">
+            <li>
+              <div class="impl__fhead">
+                <span class="impl__num">1</span>
+                <p class="impl__ftitle">Наявність рішень Simbioz EMS</p>
+              </div>
+              <p class="impl__ftext">Які ваші процеси вже закриваються готовими та відпрацьованими рішеннями системи.</p>
+            </li>
+            <li>
+              <div class="impl__fhead">
+                <span class="impl__num">2</span>
+                <p class="impl__ftitle">Готовність підприємства</p>
+              </div>
+              <p class="impl__ftext">До яких змін <span class="text-accent">реально готова</span> ваша компанія, процеси, команда та окремі підрозділи.</p>
+            </li>
+          </ol>
+        </div>
+      </article>
+
+      <div class="impl__commit">
+        <p class="impl__result"><b>Результат:</b> впроваджуємо не максимум функціоналу, а той контур, який компанія реально зможе запустити й використовувати. До старту робіт ви знаєте, що отримаєте, коли і за який бюджет.</p>
+
+        <a class="btn btn--primary btn--lg" href="#request">
+          Дізнатися рамки бюджету для вашого підприємства
+          <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 11 РИЗИКИ ============================ -->
+<section class="section" id="risk" aria-labelledby="risk-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="risk-title">Як ми знижуємо ризик провалу впровадження</h2>
+      <p class="section__lead">Ми розробили <span class="text-accent">власну технологію впровадження</span> Simbioz EMS на основі досвіду комплексних ERP-проєктів. Вона охоплює весь шлях — від обстеження й фіксації меж до підготовки даних, навчання, тестування, запуску системи та підтримки. Кожен етап має конкретний результат і закриває типові ризики впровадження.</p>
+    </header>
+
+    <ul class="risks reveal-group">
+      <li class="risk reveal">
+        <p class="risk__name">Підприємство ще не готове до системи</p>
+        <p class="risk__fix">Ми оцінюємо зрілість компанії до старту і відверто відмовляємо у впровадженні, якщо підприємство ще не готове до змін.</p>
+      </li>
+      <li class="risk reveal">
+        <p class="risk__name">Обсяг з'ясовується вже в процесі</p>
+        <p class="risk__fix">Ми проводимо обстеження до старту впровадження та заздалегідь фіксуємо межі, результат, строк і бюджет проєкту.</p>
+      </li>
+      <li class="risk reveal">
+        <p class="risk__name">Дані не встигають до запуску</p>
+        <p class="risk__fix">Ми виділяємо окремий етап підготовки, очищення та перенесення даних із погодженими строками й відповідальними.</p>
+      </li>
+      <li class="risk reveal">
+        <p class="risk__name">Керівництво не залучене до проєкту</p>
+        <p class="risk__fix">Ми залучаємо першого керівника та ключових стейкхолдерів уже на етапі обстеження і фіксуємо їхню участь у ключових рішеннях.</p>
+      </li>
+      <li class="risk reveal">
+        <p class="risk__name">Люди не переходять у нову систему</p>
+        <p class="risk__fix">Ми навчаємо ключових користувачів до запуску системи та готуємо команду до роботи в нових процесах.</p>
+      </li>
+      <li class="risk reveal">
+        <p class="risk__name">Проблеми виявляються вже після запуску</p>
+        <p class="risk__fix">Ми проводимо окремий етап тестування, на якому команда клієнта проходить реальні бізнес-сценарії до введення системи в експлуатацію.</p>
+      </li>
+    </ul>
+    <div class="proof" aria-label="Досвід компанії">
+      <div class="proof__item"><b>20+</b><span>років автоматизації бізнесу</span></div>
+      <div class="proof__item"><b>2000+</b><span>реалізованих проєктів</span></div>
+      <div class="proof__item"><b>250+</b><span>комплексних впроваджень</span></div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn--primary btn--lg" href="#request">
+        Запросити діагностичну зустріч
+        <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <p class="microcopy">Визначимо цілі діджиталізації, ризики та рамки бюджету для вашого підприємства. Покажемо нашу технологію впровадження.</p>
+    </div>
+    
+
+  </div>
+</section>
+
+<!-- ============================ 12 FAQ ============================ -->
+<section class="section section--alt" id="faq" aria-labelledby="faq-title">
+  <div class="shell">
+    <header class="section__head">
+      <h2 id="faq-title">Сім питань, які ставлять найчастіше</h2>
+    </header>
+
+    <div class="accordion accordion--faq">
+      <details class="acc">
+        <summary><span class="acc__title">Скільки це коштує?</span></summary>
+        <div class="acc__body"><p>Програмний комплекс коштує 15 000 $ одноразово, безстроково, без обмеження кількості користувачів. Ліцензія — менша частина інвестиції: основний бюджет комплексного запуску формує проєкт впровадження, і його вартість фіксується після обстеження. Порядок бюджету впровадження для вашого підприємства ми називаємо після діагностики.</p></div>
+      </details>
+      <details class="acc">
+        <summary><span class="acc__title">Це Odoo. Хіба Odoo тягне серійне виробництво?</span></summary>
+        <div class="acc__body"><p>Стандартна Odoo не закриває повністю версіонування конструкції, аналоги компонентів і контрактне планування. Галузеву специфіку дає конфігурація Simbioz EMS: 400+ власних модулів, написаних під конкретні виробничі задачі. Міжнародна платформа Odoo дає перевірену основу з кодом, доступним для аудиту.</p></div>
+      </details>
+      <details class="acc">
+        <summary><span class="acc__title">У нас усе в 1С \ BAS. Перехід не паралізує підприємство?</span></summary>
+        <div class="acc__body"><p>Перехід повний, а не паралельний: українська локалізація в складі системи закриває первинні документи, ПДВ, митні декларації, курсові різниці за курсами НБУ й банків, касові та складські форми. Підприємство не тримає дві системи й ручну звірку між ними. Юридичний бік теж має значення: Постанова КМУ № 1335 від 22 жовтня 2025 року. Але головний аргумент архітектурний: можливість аудиту коду проти її відсутності й власність підприємства на систему проти залежності від єдиного вендора.</p></div>
+      </details>
+      <details class="acc">
+        <summary><span class="acc__title">Скільки насправді триватиме впровадження?</span></summary>
+        <div class="acc__body"><p>Перший робочий контур запускається в експлуатацію від 2 місяців. Точний строк і склад робіт фіксуються в договорі після обстеження, а не уточнюються в процесі.</p></div>
+      </details>
+      <details class="acc">
+        <summary><span class="acc__title">Чи можна купити тільки ліцензію, без впровадження?</span></summary>
+        <div class="acc__body"><p>Так. Це має сенс, якщо у вас є власна команда з досвідом впровадження ERP, описані процеси й виділений керівник проєкту. Якщо цього немає, ліцензія без впровадження з високою ймовірністю залишиться встановленою, але не запущеною. На діагностиці ми скажемо прямо, який варіант вам підходить.</p></div>
+      </details>
+      <details class="acc">
+        <summary><span class="acc__title">Де фізично будуть наші дані?</span></summary>
+        <div class="acc__body"><p>На вашому сервері. Система встановлюється в контурі підприємства. Вихідний код доступний для аудиту вашою службою безпеки. Платформа, на якій побудована система, сертифікована за ISO/IEC 27001.</p></div>
+      </details>
+      <details class="acc">
+        <summary><span class="acc__title">Наші люди не перейдуть, вони звикли до старої системи</span></summary>
+        <div class="acc__body"><p>Це найчастіша реальна причина провалу таких проєктів, і причина рідко технічна. Тому користувач отримує передналаштовану конфігурацію під свій тип виробництва й зрозумілу послідовність дій, а не порожню платформу. Навчання персоналу входить у зафіксований обсяг впровадження як окремий напрям робіт із виділеним часом.</p></div>
+      </details>
+    </div>
+
+    <p class="note note--wide">Не знайшли свого питання? Залиште своє питання у формі запиту на діагностику.</p>
+  </div>
+</section>
+
+<!-- ============================ 13 ФОРМА (темна смуга) ============================ -->
+<section class="band section" id="request" aria-labelledby="request-title">
+  <div class="shell request">
+    <div class="request__intro">
+      <h2 id="request-title">Запишіться на безкоштовну діагностику бізнесу</h2>
+      <p class="section__lead">На діагностичній зустрічі з нашим аналітиком<br>за 30 хвилин ви отмаєте:</p>
+      <ul class="check-list check-list--onDark">
+        <li>Визначите основні задачі автоматизації</li>
+        <li>Подивитесь на конкретних прикладах як це працює</li>
+        <li>З'ясуєте, який варіант запуску вам підходить</li>
+        <li>Отримаєте рамки бюджету для вашого підприємства</li>
+      </ul>
+    </div>
+
+    <form class="form" id="request-form" novalidate>
+      <div class="field">
+        <label for="f-name">Ім'я <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
+        <p class="field__error" id="e-name" hidden>Вкажіть, будь ласка, ваше ім'я</p>
+      </div>
+
+      <div class="field">
+        <label for="f-phone">Телефон <span class="req" aria-hidden="true">*</span></label>
+        <input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="e-phone">
+        <p class="field__error" id="e-phone" hidden>Вкажіть телефон для зв'язку</p>
+      </div>
+
+      <div class="field">
+        <label for="f-email">E-mail <span class="req" aria-hidden="true">*</span></label>
+        <input type="email" id="f-email" name="email" autocomplete="email" required aria-describedby="e-email">
+        <p class="field__error" id="e-email" hidden>Перевірте адресу пошти</p>
+      </div>
+
+      <div class="field">
+        <label for="f-company">Компанія або тип виробництва</label>
+        <input type="text" id="f-company" name="company" autocomplete="organization">
+      </div>
+
+      <div class="field field--wide">
+        <label for="f-topic">Що хочете автоматизувати <span class="req" aria-hidden="true">*</span></label>
+        <select id="f-topic" name="topic" required aria-describedby="e-topic">
+          <option value="" selected disabled>Оберіть напрям</option>
+          <option>Ще не визначилися</option>
+          <option>Зміни конструкції</option>
+          <option>Дефіцит компонентів і аналоги</option>
+          <option>Строки за контрактом</option>
+          <option>Собівартість</option>
+          <option>Перехід з 1С або BAS</option>
+        </select>
+        <p class="field__error" id="e-topic" hidden>Оберіть напрям зі списку</p>
+      </div>
+
+      <div class="field field--wide">
+        <label for="f-message">Ваші питання</label>
+        <textarea id="f-message" name="message" rows="4"></textarea>
+      </div>
+
+      <div class="field field--wide">
+        <button class="btn btn--onDark btn--lg btn--block" type="submit" data-submit>
+          <span data-label>Запросити діагностичну зустріч</span>
+          <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </button>
+        <p class="microcopy">Надсилаючи форму, ви погоджуєтеся з <a href="#privacy">політикою конфіденційності</a>. Без спаму й передачі контактів третім особам.</p>
+      </div>
+
+      <p class="form__status" role="status" aria-live="polite" data-status hidden></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="site-footer__grid">
+      <div>
+        <span class="brand">
+          <img class="brand__mark" src="img/logo-S-white-on-dark.png" alt="" width="44" height="40">
+          <span class="brand__text">
+            <b>Simbioz EMS</b>
+            <span>MilTech</span>
+          </span>
+        </span>
+        <p class="site-footer__about">Конфігурація Simbioz EMS для серійного оборонного виробництва. Українська команда, 20+ років автоматизації бізнесу.</p>
+      </div>
+
+      <nav aria-labelledby="f-nav-1">
+        <h3 id="f-nav-1">Рішення</h3>
+        <ul>
+          <li><a href="#situations">Для кого</a></li>
+          <li><a href="#chain">Єдиний контур</a></li>
+          <li><a href="#scenarios">Сценарії</a></li>
+          <li><a href="#capabilities">Можливості</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="f-nav-2">
+        <h3 id="f-nav-2">Оцінка</h3>
+        <ul>
+          <li><a href="#architecture">Архітектура контролю</a></li>
+          <li><a href="#rollout">Впровадження</a></li>
+          <li><a href="#commercial">Вартість</a></li>
+          <li><a href="#faq">Питання</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3>Контакти</h3>
+        <ul>
+          <li><a href="mailto:info@simbioz.com">info@simbioz.com</a></li>
+          <li><a href="tel:+380736567889">+38 (073) 656 78 89</a></li>
+          <li>Україна, Київ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© <span id="year">2026</span> Simbioz. Усі права захищено.</p>
+      <p><a href="#privacy" id="privacy">Політика конфіденційності</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
